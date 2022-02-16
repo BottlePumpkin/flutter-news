@@ -29,6 +29,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #State Management
+  provider: ^6.0.1
+
+  #localization
+  easy_localization: ^3.0.0
+
+  #type
+  json_annotation:
 
 
   #Network
