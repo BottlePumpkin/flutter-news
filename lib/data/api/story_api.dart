@@ -10,12 +10,8 @@ class StoryApi extends ChangeNotifier {
     };
     Uri uri = UriExtension.fetchUri(url: 'topstories',queryParams: parms);
     var _result = await HttpClientImpl().get(uri: uri);
-    List<dynamic> response = _result.map((e) => e.toString()).toList();
-
-    return response;
+    return _result;
   }
-
-
 
 
 

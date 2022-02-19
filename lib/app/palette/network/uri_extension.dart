@@ -2,7 +2,7 @@ typedef QueryParams = Map<String, dynamic>;
 
 extension UriExtension on Uri {
   static Uri fetchUri(
-          {String baseUrl = 'hacker-story.firebaseio.com',
+          {String baseUrl = 'hacker-news.firebaseio.com',
            String url = '',
           QueryParams? queryParams}) =>
       Uri(
@@ -12,6 +12,7 @@ extension UriExtension on Uri {
         path: 'v0/$url.json',
         queryParameters: _convertQueryParams(queryParams),
       );
+
 
   static QueryParams _convertQueryParams(QueryParams? q) {
     if (q == null) return {};

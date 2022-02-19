@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:flutter_news/app/palette/network/http_client.dart';
@@ -30,8 +29,9 @@ class HttpClientImpl implements HttpClient {
     dynamic res;
 
     try {
-      res = jsonDecode(response.body);
+     res = jsonDecode(response.body);
     } catch (e) {
+      print(e);
       //throw MalformedError();
     }
 
