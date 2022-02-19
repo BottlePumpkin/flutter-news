@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/app/config/app_provider_config.dart';
 import 'package:flutter_news/app/config/routes.dart';
-import 'package:flutter_news/app/palette/network/http_client_impl.dart';
-import 'package:flutter_news/app/palette/network/uri_extension.dart';
-import 'package:flutter_news/data/api/story_api.dart';
 import 'package:flutter_news/presentation/story/story_detail/story_detail_view.dart';
 import 'package:flutter_news/presentation/story/story_main/story_main_view.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => StoryMainView(),
+          '/': (context) => const StoryMainView(),
           storyDetail: (context) => const StoryDetailView(),
 
 

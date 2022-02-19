@@ -10,15 +10,16 @@ class StoryDetailUsecase {
     final response = await repository.fetchStoryDetail(id);
 
     return StoryDetailEntity(
-              by: response.by,
-              descendants: response.descendants,
-              id: response.id,
-              kids: response.kids,
-              score: response.score,
-              time: response.time,
-              title: response.title,
-              type: response.type,
-              text: response.text,
-              url: response.url);
+      by: response.by,
+      descendants: response.descendants,
+      id: response.id,
+      kids: response.kids,
+      score: response.score,
+      time: response.time,
+      title: response.title,
+      type: response.type,
+      text: response.text,
+      url: response.url,
+    );
   }
 }

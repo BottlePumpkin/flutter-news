@@ -10,15 +10,16 @@ class StoryDetailEntity {
   final String url;
   final String text;
 
-  StoryDetailEntity(
-      {required this.by,
-      required this.descendants,
-      required this.id,
-      required this.kids,
-      required this.score,
-      required this.time,
-      required this.title,
-      required this.type,
-        required this.text,
-      required this.url});
+  StoryDetailEntity({
+    required this.by,
+    required this.descendants,
+    required this.id,
+    required this.kids,
+    required this.score,
+    required this.time,
+    required this.title,
+    required this.type,
+    required this.text,
+    required this.url,
+  });
 }

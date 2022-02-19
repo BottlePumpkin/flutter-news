@@ -5,6 +5,8 @@ import 'package:flutter_news/presentation/story/story_main/story_main_view_model
 import 'package:provider/provider.dart';
 
 class StoryMainView extends StatefulWidget {
+  const StoryMainView({Key? key}) : super(key: key);
+
   @override
   State<StoryMainView> createState() => _StoryMainViewState();
 }
@@ -29,7 +31,7 @@ class _StoryMainViewState extends State<StoryMainView> {
           await _viewModel.fetchStoriesList();
         },
         child: !_viewModel.isLoading
-            ? LoadingView()
+            ? const LoadingView()
             : StoryMainListView(viewModel: _viewModel),
       ),
     );
@@ -46,9 +48,9 @@ class LoadingView extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircularProgressIndicator(),
-          Text('loading')
+        children: const [
+           CircularProgressIndicator(),
+           Text('loading')
         ],
       ),
     );

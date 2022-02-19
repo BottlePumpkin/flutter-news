@@ -6,8 +6,9 @@ class StoryMainViewModel extends ChangeNotifier {
 
   final StoryMainUsecase usecase;
 
+  // ignore: require_trailing_commas
   StoryMainViewModel( {
-    required StoryMainUsecase this.usecase
+    required this.usecase
  });
 
   bool isLoading = false;

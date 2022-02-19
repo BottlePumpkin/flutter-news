@@ -1,6 +1,7 @@
 typedef QueryParams = Map<String, dynamic>;
 
 extension UriExtension on Uri {
+  // ignore: require_trailing_commas
   static Uri fetchUri(
           {String baseUrl = 'hacker-news.firebaseio.com',
            String url = '',
@@ -8,7 +9,6 @@ extension UriExtension on Uri {
       Uri(
         scheme: 'https',
         host: baseUrl,
-        port: null,
         path: 'v0/$url.json',
         queryParameters: _convertQueryParams(queryParams),
       );
