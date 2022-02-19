@@ -19,6 +19,7 @@ class StoryMainListView extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
           onTap: () {
+
             Navigator.pushNamed(context, storyDetail,arguments: _viewModel.storyList[index]);
 
           },

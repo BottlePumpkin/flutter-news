@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter_news/app/palette/network/error.dart';
 import 'package:flutter_news/app/palette/network/http_client.dart';
 import 'package:flutter_news/app/palette/network/http_method.dart';
+import 'package:flutter_news/app/utilites/logger.dart';
 import 'package:http/http.dart' as http;
 
 
@@ -31,9 +33,27 @@ class HttpClientImpl implements HttpClient {
     try {
      res = jsonDecode(response.body);
     } catch (e) {
-      //throw MalformedError();
+      // throw MalformedError();
     }
 
-    return res;
+    switch (response.statusCode) {
+      case 200:
+        return res;
+      case 201:
+        return res;
+      case 400:
+        logger.e(
+            'Bad request: ${res['message']} for ${response.request!.url.toString()}');
+        throw BadRequestError(message: res['message'], code: res['code']);
+      case 500:
+        logger.e(
+            'Bad request: ${res['message']} for ${response.request!.url.toString()}');
+        throw BadRequestError(message: res['message'], code: res['code']);
+      default:
+        logger.e(
+            'Bad request: ${res['message']} for ${response.request!.url.toString()}');
+
+        throw BadRequestError(message: res['message'], code: res['code']);
+    }
   }
 }
