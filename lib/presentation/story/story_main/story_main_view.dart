@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/presentation/story/story_main/components/main_dropdown_button.dart';
+import 'package:flutter_news/presentation/story/story_main/components/story_main_list_view.dart';
 import 'package:flutter_news/presentation/story/story_main/story_main_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -25,28 +26,19 @@ class _StoryMainViewState extends State<StoryMainView> {
       ),
       body: RefreshIndicator(
         onRefresh: () async {
-          _viewModel.fetchStoriesList();
+          await _viewModel.fetchStoriesList();
         },
         child: !_viewModel.isLoading
-            ? Container(
-                color: Colors.red,
-              )
-            : ListView.builder(
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-
-                    },
-                    child: Container(
-                      height: 80,
-                      child: Text(
-                        _viewModel.storyList[index],
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  );
-                },
+            ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                  Text('loading')
+                ],
               ),
+            )
+            : StoryMainListView(viewModel: _viewModel),
       ),
     );
   }

@@ -15,14 +15,14 @@ class StoryMainViewModel extends ChangeNotifier {
   List<String> storyList = [];
   List<String> storyCategory =
   [
-    "topstories",
-    "newstories",
-    "askstories",
-    "showstories",
-    "jobstories"
+    'topstories',
+    'newstories',
+    'askstories',
+    'showstories',
+    'jobstories'
   ];
 
-  String currentCategoryValue = "topstories";
+  String currentCategoryValue = 'topstories';
 
 
   void dropDownMenuName(String value) {
