@@ -35,8 +35,21 @@ class StoryMainViewModel extends ChangeNotifier {
   Future<void> fetchStoriesList() async {
     var response = await usecase.call(currentCategoryValue);
     storyList = response.map((e) => e.storyId.toString()).toList();
+    loading();
     notifyListeners();
-    isLoading = true;
+  }
+
+  void loading() {
+    if (storyList.isEmpty) {
+      isLoading = false;
+    } else {
+      isLoading = true;
+    }
+    notifyListeners();
+  }
+
+  void close() {
+    isLoading = false;
   }
 
 
