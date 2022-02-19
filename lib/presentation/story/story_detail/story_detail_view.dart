@@ -31,10 +31,11 @@ class _StoryDetailViewState extends State<StoryDetailView> {
     super.didChangeDependencies();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
 
+  @override
+  void deactivate() {
+    Provider.of<StoryDetailViewModel>(context,listen: false).close();
+    super.deactivate();
   }
 
   @override
@@ -44,7 +45,7 @@ class _StoryDetailViewState extends State<StoryDetailView> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(_viewModel.entity?.title ?? '' ),
+          title: const Text('Stories'),
         ),
         body: !_viewModel.isLoading
             ? const LoadingView()

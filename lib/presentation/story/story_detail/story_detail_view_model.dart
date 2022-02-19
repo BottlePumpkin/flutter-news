@@ -26,6 +26,10 @@ class StoryDetailViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void close() {
+    isLoading = false;
+  }
+
 
 
 }
