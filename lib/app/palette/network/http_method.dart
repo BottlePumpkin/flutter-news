@@ -22,7 +22,7 @@ extension HttpMethodExtesion on HttpMethod {
       case HttpMethod.patch:
         return 'patch';
       default:
-        return "";
+        return '';
     }
   }
 

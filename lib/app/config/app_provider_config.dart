@@ -1,5 +1,4 @@
 import 'package:flutter_news/data/api/story_api.dart';
-import 'package:flutter_news/data/repositories/story_repository.dart';
 import 'package:flutter_news/data/repositories/story_repository_impl.dart';
 import 'package:flutter_news/domain/usecases/news/story_detail_usecase.dart';
 import 'package:flutter_news/domain/usecases/news/story_main_usecase.dart';

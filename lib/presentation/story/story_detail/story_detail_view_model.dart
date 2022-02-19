@@ -6,7 +6,7 @@ class StoryDetailViewModel extends ChangeNotifier {
   final StoryDetailUsecase usecase;
   StoryDetailEntity? entity;
 
-  StoryDetailViewModel({required StoryDetailUsecase this.usecase});
+  StoryDetailViewModel({required  this.usecase});
 
   bool isLoading = false;
 

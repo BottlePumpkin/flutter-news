@@ -31,7 +31,6 @@ class HttpClientImpl implements HttpClient {
     try {
      res = jsonDecode(response.body);
     } catch (e) {
-      print(e);
       //throw MalformedError();
     }
 

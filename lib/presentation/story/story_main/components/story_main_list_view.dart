@@ -22,11 +22,11 @@ class StoryMainListView extends StatelessWidget {
             Navigator.pushNamed(context, storyDetail,arguments: _viewModel.storyList[index]);
 
           },
-          child: Container(
+          child: SizedBox(
             height: 80,
             child: Text(
               _viewModel.storyList[index],
-              style: TextStyle(fontSize: 30),
+              style: const TextStyle(fontSize: 30),
             ),
           ),
         );

@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_news/app/palette/dimensions/inset.dart';
 import 'package:flutter_news/app/palette/dimensions/line.dart';
@@ -31,10 +31,9 @@ class _StoryDetailViewState extends State<StoryDetailView> {
     super.didChangeDependencies();
   }
 
-
   @override
   void deactivate() {
-    Provider.of<StoryDetailViewModel>(context,listen: false).close();
+    Provider.of<StoryDetailViewModel>(context, listen: false).close();
     super.deactivate();
   }
 
@@ -44,51 +43,51 @@ class _StoryDetailViewState extends State<StoryDetailView> {
         Provider.of<StoryDetailViewModel>(context);
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Stories'),
-        ),
-        body: !_viewModel.isLoading
-            ? const LoadingView()
-            : SafeArea(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsetsExtension.horizontal20,
-                    child: Center(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBoxExtension.space12,
-                          Row(
-                            children: [
-                              Text('by: ${_viewModel.entity!.by}'),
-                              const Spacer(),
-                              Text('type: ${_viewModel.entity!.type}'),
-                              const Spacer(),
-                              Text('score: ${_viewModel.entity!.score}')
-                            ],
-                          ),
-                          SizedBoxExtension.space12,
-                          Text(_viewModel.entity!.title),
-                          Text(_viewModel.entity!.text),
-                          GestureDetector(
-                            onTap: () {
-                              _launchURL(_viewModel.entity!.url);
-                            },
-                            child: Text(
-                              _viewModel.entity!.url,
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  decoration: TextDecoration.underline),
+      appBar: AppBar(
+        title: const Text('Stories'),
+      ),
+      body: !_viewModel.isLoading
+          ? const LoadingView()
+          : SafeArea(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsetsExtension.horizontal20,
+                  child: Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBoxExtension.space12,
+                        Row(
+                          children: [
+                            Text('by: ${_viewModel.entity!.by}'),
+                            const Spacer(),
+                            Text('type: ${_viewModel.entity!.type}'),
+                            const Spacer(),
+                            Text('score: ${_viewModel.entity!.score}')
+                          ],
+                        ),
+                        SizedBoxExtension.space12,
+                        Text(_viewModel.entity!.title),
+                        Text(_viewModel.entity!.text),
+                        GestureDetector(
+                          onTap: () {
+                            _launchURL(_viewModel.entity!.url);
+                          },
+                          child: Text(
+                            _viewModel.entity!.url,
+                            style: const TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline,
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
-              ));
-
-
+              ),
+            ),
+    );
   }
 
   _launchURL(String url) async {
@@ -98,6 +97,4 @@ class _StoryDetailViewState extends State<StoryDetailView> {
       throw 'Could not launch $url';
     }
   }
-
-
 }
