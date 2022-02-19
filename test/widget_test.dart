@@ -6,25 +6,18 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_news/data/api/story_api.dart';
+import 'package:flutter_news/data/repositories/story_repository_impl.dart';
+import 'package:flutter_news/domain/usecases/news/story_main_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter_news/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  test('t', () async {
+   var response = await StoryMainUsecase(repository: StoryRepositoryImpl(storyApi: StoryApi())).call('topstories');
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
   });
 }

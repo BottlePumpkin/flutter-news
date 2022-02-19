@@ -2,16 +2,17 @@ typedef QueryParams = Map<String, dynamic>;
 
 extension UriExtension on Uri {
   static Uri fetchUri(
-          {String baseUrl = 'ec2-3-34-73-95.ap-northeast-2.compute.amazonaws.com',
+          {String baseUrl = 'hacker-news.firebaseio.com',
            String url = '',
           QueryParams? queryParams}) =>
       Uri(
-        scheme: 'http',
+        scheme: 'https',
         host: baseUrl,
-        port: 7001,
-        path: '/api/v1/$url',
+        port: null,
+        path: 'v0/$url.json',
         queryParameters: _convertQueryParams(queryParams),
       );
+
 
   static QueryParams _convertQueryParams(QueryParams? q) {
     if (q == null) return {};
