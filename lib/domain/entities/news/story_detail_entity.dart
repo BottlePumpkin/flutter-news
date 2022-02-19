@@ -8,6 +8,7 @@ class StoryDetailEntity {
   final String title;
   final String type;
   final String url;
+  final String text;
 
   StoryDetailEntity(
       {required this.by,
@@ -18,5 +19,6 @@ class StoryDetailEntity {
       required this.time,
       required this.title,
       required this.type,
+        required this.text,
       required this.url});
 }

@@ -18,6 +18,7 @@ class StoryDetailUsecase {
               time: response.time,
               title: response.title,
               type: response.type,
+              text: response.text,
               url: response.url);
   }
 }
