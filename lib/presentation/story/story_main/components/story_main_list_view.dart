@@ -15,10 +15,11 @@ class StoryMainListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      itemCount: _viewModel.storyList.length,
       itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, storyDetail);
+            Navigator.pushNamed(context, storyDetail,arguments: _viewModel.storyList[index]);
 
           },
           child: Container(

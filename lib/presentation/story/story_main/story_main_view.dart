@@ -29,16 +29,27 @@ class _StoryMainViewState extends State<StoryMainView> {
           await _viewModel.fetchStoriesList();
         },
         child: !_viewModel.isLoading
-            ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(),
-                  Text('loading')
-                ],
-              ),
-            )
+            ? LoadingView()
             : StoryMainListView(viewModel: _viewModel),
+      ),
+    );
+  }
+}
+
+class LoadingView extends StatelessWidget {
+  const LoadingView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircularProgressIndicator(),
+          Text('loading')
+        ],
       ),
     );
   }
