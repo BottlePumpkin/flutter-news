@@ -26,7 +26,7 @@ class StoryMainListView extends StatelessWidget {
           child: SizedBox(
             height: 80,
             child: Text(
-              _viewModel.storyList[index],
+              '${_viewModel.storyList[index]}',
               style: const TextStyle(fontSize: 30),
             ),
           ),
