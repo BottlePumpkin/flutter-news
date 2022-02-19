@@ -13,6 +13,12 @@ class StoryMainView extends StatefulWidget {
 
 class _StoryMainViewState extends State<StoryMainView> {
   @override
+  void deactivate() {
+    Provider.of<StoryMainViewModel>(context, listen: false).close();
+    super.deactivate();
+  }
+
+  @override
   void initState() {
     Provider.of<StoryMainViewModel>(context, listen: false).fetchStoriesList();
     super.initState();
